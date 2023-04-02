@@ -6,9 +6,9 @@ namespace eTickets.Models
     {
         [Key]
         public int Id { get; set; }
-        public string ProfilePictureUrl { get; set; } = null!;
-        public string FullName { get; set; }=null!;
-        public string Bio { get; set; }=null !;
+        public string? ProfilePictureUrl { get; set; }
+        public string? FullName { get; set; }
+        public string? Bio { get; set; }
 
         //Relationships
         public List<Actor_Movie> Actors_Movies { get; set; }=new List<Actor_Movie>();
