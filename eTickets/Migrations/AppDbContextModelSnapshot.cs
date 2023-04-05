@@ -29,7 +29,7 @@ namespace eTickets.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProfilePictureUrl")
+                    b.Property<string>("ProfilePictureURL")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -87,7 +87,7 @@ namespace eTickets.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("ImageURL")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("MovieCategory")
@@ -126,7 +126,7 @@ namespace eTickets.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProfilePictureUrl")
+                    b.Property<string>("ProfilePictureURL")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

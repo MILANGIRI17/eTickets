@@ -17,7 +17,7 @@ namespace eTickets.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProfilePictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    ProfilePictureURL = table.Column<string>(type: "TEXT", nullable: true),
                     FullName = table.Column<string>(type: "TEXT", nullable: true),
                     Bio = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -47,7 +47,7 @@ namespace eTickets.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProfilePictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    ProfilePictureURL = table.Column<string>(type: "TEXT", nullable: true),
                     FullName = table.Column<string>(type: "TEXT", nullable: true),
                     Bio = table.Column<string>(type: "TEXT", nullable: true)
                 },
@@ -65,7 +65,7 @@ namespace eTickets.Migrations
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<double>(type: "REAL", nullable: false),
-                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageURL = table.Column<string>(type: "TEXT", nullable: true),
                     StartDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EndDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     MovieCategory = table.Column<int>(type: "INTEGER", nullable: false),
