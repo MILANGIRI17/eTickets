@@ -4,5 +4,10 @@ namespace eTickets.Data.Services;
 
 public interface IActorService
 {
-    IEnumerable<Actor> GetAll();
+    Task<IEnumerable<Actor>> GetAll();
+    Task<Actor> GetById(string id);
+    void Add(Actor actor);
+    Task<Actor> Update(int id, Actor newActor);
+    void Delete(int id);
+
 }

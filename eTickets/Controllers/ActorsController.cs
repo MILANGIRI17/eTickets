@@ -1,19 +1,20 @@
 ﻿using eTickets.Data;
+using eTickets.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace eTickets.Controllers;
 
 public class ActorsController : Controller
 {
-    private readonly AppDbContext context;
+    private readonly IActorService service;
 
-    public ActorsController(AppDbContext context)
+    public ActorsController(IActorService service)
     {
-        this.context = context;
+        this.service = service;
     }
     public async Task<IActionResult> Index()
     {
-        var data = await context.Actors.ToListAsync();
+        var data = await service.GetAll();
         return View(data);
     }
 }
