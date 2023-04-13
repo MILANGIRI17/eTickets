@@ -15,7 +15,7 @@ public class ActorsController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        var data = await service.GetAll();
+        var data = await service.GetAllAsync();
         return View(data);
     }
 
@@ -33,7 +33,15 @@ public class ActorsController : Controller
         {
             return View(actor);
         }
-        service.Add(actor);
+        await service.AddAsync(actor);
         return RedirectToAction(nameof(Index));
+    }
+
+    //Get: Actors/Details/1
+    public async Task<IActionResult> Details(int id)
+    {
+        var data= await service.GetByIdAsync(id);
+        if (data == null) return View("Empty");
+        return View(data);
     }
 }
