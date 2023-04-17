@@ -45,6 +45,7 @@ public class ActorsController : Controller
         return View(actorDetail);
     }
 
+    //Get: Actors/Edit/1
     public async Task<IActionResult> Edit(int id)
     {
         var actorDetail = await service.GetByIdAsync(id);
@@ -63,5 +64,24 @@ public class ActorsController : Controller
         await service.UpdateAsync(id,actor);
         return RedirectToAction(nameof(Index));
     }
+
+    //Get: Actors/Delete/1
+    public async Task<IActionResult> Delete(int id)
+    {
+        var actor = await service.GetByIdAsync(id);
+        if (actor == null) return View("NotFound");
+        return View(actor);
+    }
+
+    [HttpPost,ActionName("Delete")]
+    [AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var actor=await service.GetByIdAsync(id);
+        if(actor == null) return View("NotFound");
+        await service.DeleteAsync(id); 
+        return RedirectToAction(nameof(Index));
+    }
+
 
 }
