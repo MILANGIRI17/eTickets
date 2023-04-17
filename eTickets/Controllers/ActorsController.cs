@@ -40,8 +40,28 @@ public class ActorsController : Controller
     //Get: Actors/Details/1
     public async Task<IActionResult> Details(int id)
     {
-        var data= await service.GetByIdAsync(id);
-        if (data == null) return View("Empty");
-        return View(data);
+        var actorDetail= await service.GetByIdAsync(id);
+        if (actorDetail == null) return View("Empty");
+        return View(actorDetail);
     }
+
+    public async Task<IActionResult> Edit(int id)
+    {
+        var actorDetail = await service.GetByIdAsync(id);
+        if (actorDetail == null) return View("NotFound");
+        return View(actorDetail);
+    }
+
+    [HttpPost]
+    [AutoValidateAntiforgeryToken]
+    public async Task<IActionResult> Edit(int id,[Bind("Id,FullName,ProfilePictureURL,Bio")] Actor actor)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(actor);
+        }
+        await service.UpdateAsync(id,actor);
+        return RedirectToAction(nameof(Index));
+    }
+
 }
