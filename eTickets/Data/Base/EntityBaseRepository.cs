@@ -23,17 +23,9 @@ public class EntityBaseRepository<T> : IEntityBaseRepository<T> where T : class,
         entityEntry.State = EntityState.Deleted;
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
-    {
-        var result =await context.Set<T>().ToListAsync();
-        return result;
-    }
+    public async Task<IEnumerable<T>> GetAllAsync()=> await context.Set<T>().ToListAsync();
 
-    public async Task<T> GetByIdAsync(int id)
-    {
-       var result=await context.Set<T>().FirstOrDefaultAsync(x=>x.Id==id);
-        return result;
-    }
+    public async Task<T> GetByIdAsync(int id)=> await context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
 
     public async Task UpdateAsync(int id, T entity)
     {
