@@ -41,7 +41,7 @@ public class ActorsController : Controller
     public async Task<IActionResult> Details(int id)
     {
         var actorDetail= await service.GetByIdAsync(id);
-        if (actorDetail == null) return View("Empty");
+        if (actorDetail == null) return View("NotFound");
         return View(actorDetail);
     }
 
